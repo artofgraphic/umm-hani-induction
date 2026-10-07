@@ -63,6 +63,16 @@ function Index() {
           <div><b><span lang="ja">時間</span><small>Time</small></b><span>10am prompt</span></div>
         </section>
         <hr className="line" />
+        <span className="tab" lang="ja">感謝<small>Thank you</small></span>
+        <section className="thanks">
+          <h2>Thank you for being part of this day</h2>
+          <p>Alhamdulillah, the day has come and my heart is full. I took my oath as a nurse and a midwife, and I know I did not reach that moment alone.</p>
+          <p>To my family, who prayed for me and carried me through the late nights and the difficult ones — thank you. To my friends, my lecturers and everyone who encouraged me when I doubted myself — thank you. Your kindness made the hard days easier and this day so much sweeter. ❤️</p>
+          <p>Please keep me in your prayers as I begin this new chapter. I pray Allah blesses you abundantly for every kindness shown to me. Ameen.</p>
+          <p>If you would like to leave a word for me, the wish wall below is open — I read every single message.</p>
+          <div className="sig"><span className="stamp" lang="ja" aria-hidden="true">謝</span></div>
+        </section>
+        <hr className="line" />
         <section className="wishes">
           <span className="tab" lang="ja">寄せ書き<small>Messages</small></span>
           <h2>Leave me a wish</h2>

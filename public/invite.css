@@ -73,3 +73,10 @@ h1{font-size:clamp(1.75rem,12cqw,2.6rem);line-height:1.12;overflow-wrap:break-wo
 h1{font-size:clamp(1.6rem,12cqw,2.6rem)}
 @supports (width:1cqw){h1{font-size:clamp(1.6rem,12cqw,2.6rem)}}
 }
+.thanks{background:rgba(111,79,163,.07);border:1px solid var(--line);border-left:4px solid var(--seal);padding:26px 22px 18px;margin:0 0 34px}
+.thanks h2{font-family:"Shippori Mincho",serif;font-weight:500;margin:0 0 10px;font-size:1.35rem}
+.thanks p{margin:0 0 14px;font-size:1.05rem}
+.thanks p:last-of-type{margin-bottom:0}
+.sig{display:flex;justify-content:flex-end;margin-top:18px}
+.stamp{width:56px;height:56px;border:2px solid var(--seal);border-radius:50%;color:var(--seal);display:flex;align-items:center;justify-content:center;font-family:"Shippori Mincho",serif;font-weight:700;font-size:1.5rem;background:var(--paper);transform:rotate(-7deg);box-shadow:0 2px 8px rgba(31,21,48,.12)}
+@media (max-width:480px){.thanks{padding:22px 16px 16px}}
