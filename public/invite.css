@@ -68,3 +68,7 @@ h1{font-size:clamp(1.75rem,12cqw,2.6rem);line-height:1.12;overflow-wrap:break-wo
 @supports (width:1cqw){h1{font-size:clamp(1.75rem,12cqw,2.6rem)}}
 .name{font-size:clamp(1.6rem,7vw,2rem)}
 }
+@media (max-width:359px){
+h1{font-size:clamp(1.6rem,12cqw,2.6rem)}
+@supports (width:1cqw){h1{font-size:clamp(1.6rem,12cqw,2.6rem)}}
+}
