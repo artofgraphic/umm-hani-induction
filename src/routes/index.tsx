@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
+import { supabase } from "@/integrations/supabase/client";
 
 const title = "Olurode Ummhani Gbekeloluwa | My Induction & Oath-Taking Ceremony";
 const desc = "Alhamdulillah, I'm officially a nurse! Join my induction and oath-taking ceremony at Fountain University, Osogbo — 7th October 2026, 10am.";
@@ -26,6 +27,7 @@ function Index() {
   useEffect(() => {
     if ((window as any).__inviteLoaded) return;
     (window as any).__inviteLoaded = true;
+    (window as any).__sb = supabase;
     const s = document.createElement("script");
     s.src = "/invite.js";
     document.body.appendChild(s);
