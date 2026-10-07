@@ -9,7 +9,11 @@ document.body.appendChild(e);e.animate([{transform:"translateY(0) rotate(0deg)",
 var AC=null,played=false,tapT0=Date.now();
 document.getElementById("replay").addEventListener("click",function(){played=true;together()});
 function hideTap(){var t=document.getElementById("tap");if(t)setTimeout(function(){t.classList.add("gone")},Math.max(0,7000-(Date.now()-tapT0)))}
-function sound(){hideTap();try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();if(AC.state!=="running")AC.resume();var t0=AC.currentTime+.03,sr=AC.sampleRate,master=AC.createGain();master.gain.value=.22;master.connect(AC.destination);
+function sound(){hideTap();try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();if(AC.state!=="running")AC.resume();var t0=AC.currentTime+.03,sr=AC.sampleRate,master=AC.createGain();master.gain.value=.55;master.connect(AC.destination);
+var len=Math.floor(sr*.09),buf=AC.createBuffer(1,len,sr),d=buf.getChannelData(0);for(var i=0;i<len;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/len,3);
+for(var k=0;k<190;k++){var rel=Math.random()*4.2,env=rel<3.2?1:Math.max(0,1-(rel-3.2)/1),src=AC.createBufferSource(),f=AC.createBiquadFilter(),g=AC.createGain();src.buffer=buf;src.playbackRate.value=.8+Math.random()*.9;f.type="bandpass";f.frequency.value=1700+Math.random()*3200;f.Q.value=1.1;g.gain.value=(.55+Math.random()*.45)*env;src.connect(f);f.connect(g);g.connect(master);src.start(t0+rel)}
+var plen=Math.floor(sr*.3),pb=AC.createBuffer(1,plen,sr),pd=pb.getChannelData(0);for(var j=0;j<plen;j++)pd[j]=(Math.random()*2-1)*Math.pow(1-j/plen,3);
+[0,.1,.22].forEach(function(dl){var ps=AC.createBufferSource(),pf=AC.createBiquadFilter(),pg=AC.createGain();ps.buffer=pb;pf.type="lowpass";pf.frequency.value=3200;pg.gain.value=1.8;ps.connect(pf);pf.connect(pg);pg.connect(master);ps.start(t0+dl)})}catch(e){}}
 var len=Math.floor(sr*.12),buf=AC.createBuffer(1,len,sr),d=buf.getChannelData(0);for(var i=0;i<len;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/len,2);
 for(var k=0;k<170;k++){var rel=Math.random()*4.5,env=rel<3.4?1:Math.max(0,1-(rel-3.4)/1.1),src=AC.createBufferSource(),f=AC.createBiquadFilter(),g=AC.createGain();src.buffer=buf;src.playbackRate.value=.7+Math.random()*.8;f.type="bandpass";f.frequency.value=1200+Math.random()*3000;f.Q.value=.7;g.gain.value=(.3+Math.random()*.5)*env;src.connect(f);f.connect(g);g.connect(master);src.start(t0+rel)}
 var plen=Math.floor(sr*.35),pb=AC.createBuffer(1,plen,sr),pd=pb.getChannelData(0);for(var j=0;j<plen;j++)pd[j]=(Math.random()*2-1)*Math.pow(1-j/plen,3);
