@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
 
 const title = "Olurode Ummhani Gbekeloluwa | My Induction & Oath-Taking Ceremony";
-const desc = "Alhamdulillah, I'm officially a nurse! Join my induction and oath-taking ceremony at Fountain University, Osogbo — 7th October 2026, 10am.";
+const desc = "Alhamdulillah, I'm officially a nurse! My induction and oath-taking ceremony at Fountain University, Osogbo — and a thank you to everyone who prayed for me and stood by me.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
