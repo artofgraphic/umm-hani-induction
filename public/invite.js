@@ -26,9 +26,9 @@ sb.channel("wishes").on("postgres_changes",{event:"INSERT",schema:"public",table
 var btn=document.getElementById("go");
 btn.addEventListener("click",function(){var n=document.getElementById("from").value.trim()||"A friend",tx=document.getElementById("text"),t=tx.value.trim();if(!t){note.textContent="Write a message first.";return}btn.disabled=true;
 sb.from("wishes").insert({name:n.slice(0,60),text:t.slice(0,500)}).then(function(r){btn.disabled=false;if(r.error){note.textContent="Could not post your wish. Try again.";return}tx.value="";load();note.textContent="Thank you for your wish! 🤍";together()})});
-function once(){if(played)return;played=true;["pointerdown","touchend","click","keydown"].forEach(function(n){window.removeEventListener(n,once)});together()}
+var lastTap=0;function once(ev){var t=ev&&ev.target;if(t&&t.closest&&t.closest("input,textarea,select,button,a,label,#replay"))return;if(ev&&ev.type==="keydown"&&ev.key!=="Enter"&&ev.key!==" ")return;var now=Date.now();if(now-lastTap<1500)return;lastTap=now;played=true;together()}
 var showering=false,stim=null;
 function shower(force){if(showering&&!force)return;clearInterval(stim);showering=true;var k=0;function tick(){burst(k===0?110:28);if(++k>12){clearInterval(stim);showering=false}}tick();stim=setInterval(tick,500)}
 shower();
-["pointerdown","touchstart","touchend","click","keydown"].forEach(function(n){window.addEventListener(n,once,{passive:true})})
+["touchend","click","keydown"].forEach(function(n){window.addEventListener(n,once,{passive:true})})
 })();
