@@ -4,6 +4,8 @@ import { supabase } from "@/integrations/supabase/client";
 
 const title = "Olurode Ummhani Gbekeloluwa | My Induction & Oath-Taking Ceremony";
 const desc = "Alhamdulillah, I'm officially a nurse! Join me for my induction and oath-taking ceremony at Fountain University, Osogbo — Wednesday, 7th October 2026, 10am prompt.";
+const site = "https://oath-to-joy.lovable.app";
+const ogImage = `${site}/og-invite.jpg`;
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -13,7 +15,13 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: title },
       { property: "og:description", content: desc },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: site },
+      { property: "og:image", content: ogImage },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: "Invitation cover — Alhamdulillah, I'm officially a nurse! Olurode Ummhani Gbekeloluwa, RN, RM, BNSc. Wednesday, 7th October 2026, New Auditorium, Fountain University, Osogbo." },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: ogImage },
     ],
     links: [
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" },

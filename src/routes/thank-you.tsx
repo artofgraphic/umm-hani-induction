@@ -4,6 +4,8 @@ import { supabase } from "@/integrations/supabase/client";
 
 const title = "Thank You — Olurode Ummhani Gbekeloluwa, RN, RM, BNSc";
 const desc = "Alhamdulillah, the day has come and gone. Thank you to everyone who attended, sent a wish, or supported me through my induction and oath-taking as a nurse and midwife.";
+const site = "https://oath-to-joy.lovable.app";
+const ogImage = `${site}/og-thank-you.jpg`;
 
 export const Route = createFileRoute("/thank-you")({
   head: () => ({
@@ -13,7 +15,13 @@ export const Route = createFileRoute("/thank-you")({
       { property: "og:title", content: title },
       { property: "og:description", content: desc },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: `${site}/thank-you` },
+      { property: "og:image", content: ogImage },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: "Thank-you cover — Thank you, Alhamdulillah, I did it! Olurode Ummhani Gbekeloluwa, RN, RM, BNSc." },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: ogImage },
     ],
     links: [
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" },
