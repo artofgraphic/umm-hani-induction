@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
 
 const title = "Thank You — Olurode Ummhani Gbekeloluwa, RN, RM, BNSc";
-const desc = "Alhamdulillah, the day has come and my heart is full. Thank you to everyone who prayed for me, supported me and celebrated my induction and oath-taking as a nurse and midwife.";
+const desc = "Alhamdulillah, the day has come and gone. Thank you to everyone who attended, sent a wish, or supported me through my induction and oath-taking as a nurse and midwife.";
 
 export const Route = createFileRoute("/thank-you")({
   head: () => ({
@@ -36,7 +36,7 @@ function ThankYou() {
         <button id="replay" type="button" aria-label="Play the celebration sound">🔊 Tap for sound · <span lang="ja">タップして音を</span></button>
         <header className="hero">
           <div className="col">
-            <p className="k">My Induction &amp; Oath-Taking Ceremony</p>
+            <p className="k">In gratitude · Induction &amp; Oath-Taking · 7th October 2026</p>
             <h1>Alhamdulillah, I did it — thank you!</h1>
             <p className="name">Olurode Ummhani Gbekeloluwa</p>
             <p className="cred">RN, RM, BNSc</p>
@@ -47,17 +47,19 @@ function ThankYou() {
         <span className="tab" lang="ja">感謝<small>Thank you</small></span>
         <section className="thanks">
           <h2>Thank you for being part of this day</h2>
-          <p>Alhamdulillah, the day has come and my heart is full. I took my oath as a nurse and a midwife, and I know I did not reach that moment alone.</p>
-          <p>To my family, who prayed for me and carried me through the late nights and the difficult ones — thank you. To my friends, my lecturers and everyone who encouraged me when I doubted myself — thank you. Your kindness made the hard days easier and this day so much sweeter. ❤️</p>
+          <p>Alhamdulillah, the day has come and gone, and my heart is still full. On Wednesday 7th October 2026 I stood in the New Auditorium at Fountain University, Osogbo, and took my oath as a nurse and a midwife.</p>
+          <p>To everyone who came — you made the hall feel like family. Seeing your faces in the crowd, and hearing your voices lift with mine as I said the oath, is something I will carry for the rest of my life.</p>
+          <p>To those who could not be there but still sent a call, a message, a prayer or a wish — thank you. Your words reached me, and I read every single one of them. Distance never stopped your love from arriving.</p>
+          <p>To my family, who prayed me through the late nights and the difficult ones; to my friends, my lecturers and everyone who encouraged me when I doubted myself — this oath belongs to you too. ❤️</p>
           <p>Please keep me in your prayers as I begin this new chapter. I pray Allah blesses you abundantly for every kindness shown to me. Ameen.</p>
-          <p>If you would like to leave a word for me, the wish wall below is open — I read every single message.</p>
+          <p>The wish wall below is still open — if you have not left a word for me yet, I would love to read yours.</p>
           <div className="sig"><span className="stamp" lang="ja" aria-hidden="true">謝</span></div>
         </section>
         <hr className="line" />
         <section className="wishes">
           <span className="tab" lang="ja">寄せ書き<small>Messages</small></span>
           <h2>Leave me a wish</h2>
-          <p style={{ color: "var(--muted)", margin: "0 0 16px" }}>Your prayers, congratulations and kind words would mean so much to me as I begin this new journey.</p>
+          <p style={{ color: "var(--muted)", margin: "0 0 16px" }}>The wall is still open — your prayers, congratulations and kind words mean so much to me as I begin this new journey.</p>
           <input id="from" placeholder="Your name" aria-label="Your name" />
           <textarea id="text" placeholder="Write a message for me" aria-label="Your message" />
           <button id="go" type="button">Post my wish</button>
