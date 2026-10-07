@@ -27,7 +27,7 @@ a{color:var(--fuji);font-weight:500}
 .priv{margin-top:18px}
 #note{color:var(--muted);font-size:.9rem;margin-top:12px}
 #wall{margin-top:24px;display:grid;gap:12px}
-.w small{color:var(--muted)}
+.w small{display:block;color:#1f1530;font-weight:700;font-size:.95rem}
 .confetti{position:fixed;top:-14px;width:9px;height:14px;pointer-events:none;z-index:9}
 footer{text-align:center;color:var(--muted);font-family:"Shippori Mincho",serif;margin-top:52px}
 .js .rv{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
