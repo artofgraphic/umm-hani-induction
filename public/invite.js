@@ -10,13 +10,13 @@ var AC=null,played=false,tapT0=Date.now();
 document.getElementById("replay").addEventListener("click",function(){played=true;together()});
 function hideTap(){var t=document.getElementById("tap");if(t)setTimeout(function(){t.classList.add("gone")},Math.max(0,7000-(Date.now()-tapT0)))}
 function cheerJP(){try{var ss=window.speechSynthesis;if(!ss)return;ss.cancel();["おめでとう！","おめでとうございます！","ばんざーい！ ばんざーい！"].forEach(function(t,i){var u=new SpeechSynthesisUtterance(t);u.lang="ja-JP";u.pitch=1.5;u.rate=i===2?.95:1.1;var vs=ss.getVoices();for(var k=0;k<vs.length;k++){if(vs[k].lang&&vs[k].lang.toLowerCase().indexOf("ja")===0){u.voice=vs[k];break}}ss.speak(u)})}catch(e){}}
-function sound(){hideTap();cheerJP();try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();var t0=AC.currentTime+.03,sr=AC.sampleRate,master=AC.createGain();master.gain.value=.6;master.connect(AC.destination);
+function sound(){hideTap();cheerJP();try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();if(AC.state!=="running")AC.resume();var t0=AC.currentTime+.03,sr=AC.sampleRate,master=AC.createGain();master.gain.value=.6;master.connect(AC.destination);
 var len=Math.floor(sr*.12),buf=AC.createBuffer(1,len,sr),d=buf.getChannelData(0);for(var i=0;i<len;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/len,2);
 for(var k=0;k<170;k++){var rel=Math.random()*4.5,env=rel<3.4?1:Math.max(0,1-(rel-3.4)/1.1),src=AC.createBufferSource(),f=AC.createBiquadFilter(),g=AC.createGain();src.buffer=buf;src.playbackRate.value=.7+Math.random()*.8;f.type="bandpass";f.frequency.value=1200+Math.random()*3000;f.Q.value=.7;g.gain.value=(.3+Math.random()*.5)*env;src.connect(f);f.connect(g);g.connect(master);src.start(t0+rel)}
 var plen=Math.floor(sr*.35),pb=AC.createBuffer(1,plen,sr),pd=pb.getChannelData(0);for(var j=0;j<plen;j++)pd[j]=(Math.random()*2-1)*Math.pow(1-j/plen,3);
 [0,.1,.22].forEach(function(dl){var ps=AC.createBufferSource(),pf=AC.createBiquadFilter(),pg=AC.createGain();ps.buffer=pb;pf.type="lowpass";pf.frequency.value=2600;pg.gain.value=1.4;ps.connect(pf);pf.connect(pg);pg.connect(master);ps.start(t0+dl)});
 for(var v=0;v<4;v++){var st=t0+.05+v*.4,base=380+Math.random()*250,o=AC.createOscillator(),lfo=AC.createOscillator(),lg=AC.createGain(),f1=AC.createBiquadFilter(),g2=AC.createGain();o.type="sawtooth";o.frequency.setValueAtTime(base,st);o.frequency.exponentialRampToValueAtTime(base*1.9,st+.35);o.frequency.exponentialRampToValueAtTime(base*1.5,st+.9);lfo.frequency.value=7;lg.gain.value=14;lfo.connect(lg);lg.connect(o.frequency);f1.type="bandpass";f1.frequency.value=900;f1.Q.value=2;g2.gain.setValueAtTime(.0001,st);g2.gain.exponentialRampToValueAtTime(.14,st+.06);g2.gain.exponentialRampToValueAtTime(.0001,st+1);o.connect(f1);f1.connect(g2);g2.connect(master);o.start(st);lfo.start(st);o.stop(st+1.05);lfo.stop(st+1.05)}}catch(e){}}
-function together(){try{AC=AC||new(window.AudioContext||window.webkitAudioContext)()}catch(e){shower(true);return}var go=function(){sound();shower(true)};if(AC.state==="running"){go();return}AC.resume().then(function(){AC.state==="running"?go():shower(true)}).catch(function(){shower(true)})}
+function together(){try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();if(AC.state!=="running")AC.resume();sound();shower(true)}catch(e){shower(true)}}
 var wall=document.getElementById("wall"),note=document.getElementById("note");
 var wishes=[],sb=window.__sb;
 function show(){wall.innerHTML="";wishes.forEach(function(x){var w=document.createElement("div"),p=document.createElement("p"),s=document.createElement("small");w.className="w";p.textContent=x.text;s.textContent="With love, "+x.name;w.appendChild(p);w.appendChild(s);wall.appendChild(w)})}
@@ -30,5 +30,5 @@ function once(){if(played)return;played=true;["pointerdown","touchend","click","
 var showering=false,stim=null;
 function shower(force){if(showering&&!force)return;clearInterval(stim);showering=true;var k=0;function tick(){burst(k===0?110:28);if(++k>12){clearInterval(stim);showering=false}}tick();stim=setInterval(tick,500)}
 shower();
-try{AC=new(window.AudioContext||window.webkitAudioContext)();if(AC.state==="running"){played=true;sound()}else["pointerdown","touchend","click","keydown"].forEach(function(n){window.addEventListener(n,once)})}catch(e){}
+["pointerdown","touchstart","touchend","click","keydown"].forEach(function(n){window.addEventListener(n,once,{passive:true})})
 })();
