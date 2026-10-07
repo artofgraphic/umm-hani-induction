@@ -1,6 +1,6 @@
 (function(){
 document.documentElement.classList.add("js");
-var els=document.querySelectorAll(".hero .col > *,.vert,.line,.msg p,.pledge,.when div,.wishes h2,.wishes input,.wishes textarea,#go,.priv,footer");
+var els=document.querySelectorAll(".hero .col > *,.vert,.line,.msg p,.pledge,.when div,.thanks h2,.thanks p,.wishes h2,.wishes input,.wishes textarea,#go,.priv,footer");
 els.forEach(function(e){e.classList.add("rv");var i=Array.prototype.indexOf.call(e.parentNode.children,e);e.style.transitionDelay=(e.closest(".msg,.when,.hero")?i*120:0)+"ms"});
 if("IntersectionObserver" in window){var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}})},{threshold:.12});els.forEach(function(e){io.observe(e)})}else els.forEach(function(e){e.classList.add("in")});
 function burst(n){var c=["#ff4d6d","#ffb703","#06d6a0","#118ab2","#a88be0","#ff7b00","#f72585","#4cc9f0","#ffd166","#7d56c9"];
