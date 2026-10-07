@@ -60,3 +60,9 @@ footer{text-align:center;color:var(--muted);font-family:"Shippori Mincho",serif;
 .w:nth-child(4n+3){background:rgba(255,238,170,.85);transform:rotate(-.6deg)}
 .w:nth-child(4n){background:rgba(196,240,206,.85);transform:rotate(1.3deg)}
 @media (max-width:480px){main{margin:10px 8px 40px;padding:32px 16px 48px 38px}}
+@media (max-width:480px){
+.hero .k{font-size:1.05rem;margin-bottom:14px}
+h1{font-size:clamp(1.75rem,12cqw,2.6rem);line-height:1.12}
+@supports (width:1cqw){h1{font-size:clamp(1.75rem,12cqw,2.6rem)}}
+.name{font-size:clamp(1.6rem,7vw,2rem)}
+}
