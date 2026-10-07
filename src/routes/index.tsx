@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
 
 const title = "Olurode Ummhani Gbekeloluwa | My Induction & Oath-Taking Ceremony";
-const desc = "Alhamdulillah, I'm officially a nurse! My induction and oath-taking ceremony at Fountain University, Osogbo — and a thank you to everyone who prayed for me and stood by me.";
+const desc = "Alhamdulillah, I'm officially a nurse! Join me for my induction and oath-taking ceremony at Fountain University, Osogbo — Wednesday, 7th October 2026, 10am prompt.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -25,8 +25,6 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   useEffect(() => {
-    if ((window as any).__inviteLoaded) return;
-    (window as any).__inviteLoaded = true;
     (window as any).__sb = supabase;
     const s = document.createElement("script");
     s.src = "/invite.js";
@@ -61,16 +59,6 @@ function Index() {
           <div><b><span lang="ja">場所</span><small>Where</small></b><span>New Auditorium, Fountain University, Osogbo</span></div>
           <div><b><span lang="ja">日時</span><small>When</small></b><span>Wednesday, 7th October 2026</span></div>
           <div><b><span lang="ja">時間</span><small>Time</small></b><span>10am prompt</span></div>
-        </section>
-        <hr className="line" />
-        <span className="tab" lang="ja">感謝<small>Thank you</small></span>
-        <section className="thanks">
-          <h2>Thank you for being part of this day</h2>
-          <p>Alhamdulillah, the day has come and my heart is full. I took my oath as a nurse and a midwife, and I know I did not reach that moment alone.</p>
-          <p>To my family, who prayed for me and carried me through the late nights and the difficult ones — thank you. To my friends, my lecturers and everyone who encouraged me when I doubted myself — thank you. Your kindness made the hard days easier and this day so much sweeter. ❤️</p>
-          <p>Please keep me in your prayers as I begin this new chapter. I pray Allah blesses you abundantly for every kindness shown to me. Ameen.</p>
-          <p>If you would like to leave a word for me, the wish wall below is open — I read every single message.</p>
-          <div className="sig"><span className="stamp" lang="ja" aria-hidden="true">謝</span></div>
         </section>
         <hr className="line" />
         <section className="wishes">
