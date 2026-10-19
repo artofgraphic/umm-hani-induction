@@ -116,7 +116,7 @@ footer{text-align:center;color:var(--muted);font-family:"Shippori Mincho",serif;
     <textarea id="text" placeholder="Write a message for me" aria-label="Your message"></textarea>
     <button id="go">Post my wish</button>
     <p id="note"></p>
-    <p class="priv">Prefer to message me privately? <a href="https://wa.me/2349014581927">WhatsApp +234 901 458 1927</a> or <a href="tel:+2349014581927">call</a>.</p>
+    <p class="priv">Prefer to message me privately? <a href="https://wa.me/234 000 000 0000">WhatsApp +234 000 000 0000</a> or <a href="tel:+2340000000000">call</a>.</p>
     <div id="wall" aria-live="polite"></div>
   </section>
   <footer>With love and gratitude.</footer>
